@@ -1,0 +1,6 @@
+
+Implementation of the HyperLogLog [1, 2] algorithm, to help me
+understand it.
+
+[1]: http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf
+[2]: http://research.google.com/pubs/pub40671.html
