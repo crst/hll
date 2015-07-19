@@ -21,8 +21,8 @@ func hash(s string) (ret uint64) {
 	return
 }
 
-func p(s uint64) uint64 {
-	r := uint64(0)
+func p(s uint64) int8 {
+	r := int8(0)
 	for (s & 1) != 1 {
 		s >>= 1
 		r += 1
@@ -30,7 +30,7 @@ func p(s uint64) uint64 {
 	return r + 1
 }
 
-func max(a uint64, b uint64) uint64 {
+func max(a int8, b int8) int8 {
 	if a < b {
 		return b
 	}
@@ -51,7 +51,7 @@ func alpha(m uint64) float64 {
 
 func hll(file string, b uint64) (float64, int) {
 	var m uint64 = 1 << b
-	var M = make([]uint64, m)
+	var M = make([]int8, m)
 	var bs uint64 = 0
 	for i := uint64(0); i < b; i++ {
 		bs |= (1 << i)
@@ -80,7 +80,7 @@ func hll(file string, b uint64) (float64, int) {
 		if M[i] == 0 {
 			V += 1
 		}
-		Z += 1.0 / float64(int(1)<<M[i])
+		Z += 1.0 / float64(int(1)<<uint(M[i]))
 	}
 
 	var E = (alpha(m) * float64(m) * float64(m)) / Z
